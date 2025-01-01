@@ -1,1 +1,98 @@
-<h>hello work!</h>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+          background-color: black;
+        }
+canvas {
+    border:1px solid #d3d3d3;
+    /*background-color: #f1f1f1;*/
+}
+</style>
+</head>
+<body>
+ 
+<canvas id="myCanvas" width="400" height="400"></canvas>
+ 
+<script>
+var canvas = document.getElementById('myCanvas');
+var ctx = canvas.getContext('2d');
+ 
+var centerX = canvas.width / 2;
+var centerY = canvas.height / 2;
+var sunRadius = 30;
+var planetRadius = 10;
+var sunColor = 'yellow';
+
+// 行星的属性
+//var planet1 = {
+//    x: 150, // 初始x坐标
+//    y: 200, // 初始y坐标
+//    radius: 10,
+//    planetColor: 'blue',
+//    // 椭圆的运动参数
+//    orbitAxis: 200, // 椭圆的长轴
+//    orbitSpeed: 0.005, // 椭圆旋转的速度
+//    angle: 0 // 当前的旋转角度
+//};
+const planets = [
+    { x: 190, y: 200, velocity: 0.01, radius: 5, planetColor:'purple',orbitAxis: 170,orbitSpeed: 0.005,angle: 0 }, // 水星
+    { x: 210, y: 200, velocity: 0.02, radius: 7, planetColor:'orange',orbitAxis: 130,orbitSpeed: 0.005,angle: 0 }, // 金星
+    { x: 180, y: 180, velocity: 0.03, radius: 6, planetColor:'blue',orbitAxis: 150,orbitSpeed: 0.006,angle: 0 }, // 地球
+    { x: 220, y: 180, velocity: 0.04, radius: 8, planetColor:'red',orbitAxis: 160,orbitSpeed: 0.007,angle: 0 }, // 火星
+    { x: 170, y: 220, velocity: 0.05, radius: 9, planetColor:'grey',orbitAxis: 200,orbitSpeed: 0.004,angle: 0 }  // 木星
+];
+ 
+// 绘制太阳
+function drawSun(x, y, radius, color) {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.fill();
+}
+ 
+// 绘制行星
+function drawPlanet(x, y, radius, color) {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.fill();
+}
+ 
+// 绘制界面
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+ 
+    // 绘制太阳
+    drawSun(centerX+40, centerY, sunRadius, sunColor);
+
+
+    // 绘制行星
+//    var planetX = centerX + planet1.orbitAxis * Math.cos(planet1.angle);
+//    var planetY = centerY + planet1.orbitAxis * 0.5 * Math.sin(planet1.angle);
+//    drawPlanet(planetX, planetY, planet1.radius, planet1.planetColor);
+//    planet1.angle += planet1.orbitSpeed;
+
+    planets.forEach(planet => {
+        var planetX = centerX + planet.orbitAxis * Math.cos(planet.angle);
+        var planetY = centerY + planet.orbitAxis * 0.5 * Math.sin(planet.angle);
+        drawPlanet(planetX, planetY, planet.radius, planet.planetColor);
+        planet.angle += planet.orbitSpeed;
+    });
+
+}
+ 
+// 使用requestAnimationFrame循环调用draw函数
+function animate() {
+    draw();
+    requestAnimationFrame(animate);
+}
+ 
+animate(); // 开始动画
+</script>
+ 
+</body>
+</html>
