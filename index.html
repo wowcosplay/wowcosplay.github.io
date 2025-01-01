@@ -7,15 +7,15 @@
         body {
           background-color: black;
         }
-canvas {
-    border:1px solid #d3d3d3;
+/*canvas {*/
+    /*border:1px solid #d3d3d3;*/
     /*background-color: #f1f1f1;*/
-}
+/*}*/
 </style>
 </head>
 <body>
  
-<canvas id="myCanvas" width="400" height="400"></canvas>
+<canvas id="myCanvas" width="1000" height="600"></canvas>
  
 <script>
 var canvas = document.getElementById('myCanvas');
@@ -39,11 +39,11 @@ var sunColor = 'yellow';
 //    angle: 0 // 当前的旋转角度
 //};
 const planets = [
-    { x: 190, y: 200, velocity: 0.01, radius: 5, planetColor:'purple',orbitAxis: 170,orbitSpeed: 0.005,angle: 0 }, // 水星
-    { x: 210, y: 200, velocity: 0.02, radius: 7, planetColor:'orange',orbitAxis: 130,orbitSpeed: 0.005,angle: 0 }, // 金星
-    { x: 180, y: 180, velocity: 0.03, radius: 6, planetColor:'blue',orbitAxis: 150,orbitSpeed: 0.006,angle: 0 }, // 地球
-    { x: 220, y: 180, velocity: 0.04, radius: 8, planetColor:'red',orbitAxis: 160,orbitSpeed: 0.007,angle: 0 }, // 火星
-    { x: 170, y: 220, velocity: 0.05, radius: 9, planetColor:'grey',orbitAxis: 200,orbitSpeed: 0.004,angle: 0 }  // 木星
+    { x: 190, y: 200, velocity: 0.01, radius: 5, planetColor:'purple',orbitAxis: 300,orbitSpeed: 0.005,angle: 0 }, // 水星
+    { x: 210, y: 200, velocity: 0.02, radius: 7, planetColor:'orange',orbitAxis: 150,orbitSpeed: 0.005,angle: 0 }, // 金星
+    { x: 180, y: 180, velocity: 0.03, radius: 6, planetColor:'blue',orbitAxis: 210,orbitSpeed: 0.006,angle: 0 }, // 地球
+    { x: 220, y: 180, velocity: 0.04, radius: 8, planetColor:'red',orbitAxis: 270,orbitSpeed: 0.007,angle: 0 }, // 火星
+    { x: 170, y: 220, velocity: 0.05, radius: 9, planetColor:'grey',orbitAxis: 400,orbitSpeed: 0.004,angle: 0 }  // 木星
 ];
  
 // 绘制太阳
