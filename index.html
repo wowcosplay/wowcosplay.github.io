@@ -12,18 +12,9 @@
     /*background-color: #f1f1f1;*/
 /*}*/
 </style>
-<audio style="display:none; height:0" id="bg-music" preload="auto" src="music.mp3" loop="loop"></audio>
-<script>
-  function playmusic(){
-  var audio = document.getElementById("bg-music");
-audio.play();
-document.addEventListener("wejjuh", function(){
-  audio.play();
-},false);
-}
-</script>
+<embed src="music.mp3" width=0 height=0 loop="true" autostart="true"></embed>
 </head>
-<body onload="playmusic()">
+<body>
 
 <canvas id="myCanvas" width="1000" height="600"></canvas>
  
